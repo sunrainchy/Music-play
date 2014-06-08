@@ -12,7 +12,7 @@ struct time_lrc/* 存放歌曲行开始播放的时间和歌词的位置*/
 {
 	int t;
 	char *lrc;
-}music[200];
+}music[200*10];
 void sig_int(int sig){
 	printf("\033[0m");
 	exit(1) ;
@@ -74,14 +74,14 @@ int main(int argc ,char *argv[])
 		music_you_like[k-4]=0;
 		strcat(music_you_like,".lrc");
 		strcpy(name,music_you_like);
-		char buffer[10000];
+		char buffer[100000];
 		fd=open(name,O_RDONLY,10175);
 		if(fd==-1)
 		{
 			printf("%s文件打开错误 ，请检查该文件是否存在",music_you_like);
 			exit(1);
 		}
-		num=read(fd,buffer,5000);
+		num=read(fd,buffer,100000);
 		buffer[num]=0;
 		i=0;
 		j=0;
