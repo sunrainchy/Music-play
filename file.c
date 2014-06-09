@@ -144,7 +144,6 @@ int main(int argc ,char *argv[])
 			printf("%s",music[i].lrc);
 			putchar(13);
 			printf("             ");
-
 			for(k=0;k<len_lrc;k++)
 			{
 				usleep(time_long*700);//本来应该是*1000的，由于歌曲尾部叫长先延迟700
@@ -167,6 +166,7 @@ int main(int argc ,char *argv[])
 				fflush(stdout);
 			}
 			usleep(time_long*len_lrc*300);//补上开始的一千
+			usleep(13000);
 			printf("\n");
 		}
 		printf("             ");
